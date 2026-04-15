@@ -118,16 +118,16 @@
 
                         @foreach($applications as $app)
                         <div class="application-item">
-                            @if($app->image)
-                            <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                            @if($app->logo_url)
+                            <img src="{{ asset($app->logo_url) }}" alt="{{ $app->name }}">
                             @else
-                            <div class="bg-light rounded p-2 text-center" style="width: 40px; height: 40px;">U</div>
+                            <div class="bg-light rounded p-2 text-center d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-weight: bold; color: #ccc;">U</div>
                             @endif
                             <div class="info">
                                 <strong>{{ $app->name }}</strong>
                                 <p>Admissions 2026</p>
                             </div>
-                            <a href="#" class="btn btn-apply">Apply</a>
+                            <a href="{{ route('pages.organisations.detail', $app->slug) }}" class="btn btn-apply">Apply</a>
                         </div>
                         @endforeach
                     </div>

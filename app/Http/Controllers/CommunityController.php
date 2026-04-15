@@ -22,8 +22,8 @@ class CommunityController extends Controller
             })
             ->take(5);
 
-        // Fetch Applications for Admissions (Latest active universities)
-        $applications = \App\Models\University::where('status', true)->latest()->take(5)->get();
+        // Fetch Applications for Admissions (Latest active organisations)
+        $applications = \App\Models\Organisation::where('status', true)->latest()->take(5)->get();
 
         $query = CommunityQuestion::with(['user', 'category', 'likes', 'replies.user', 'replies.likes'])
             ->where('is_verified', true)

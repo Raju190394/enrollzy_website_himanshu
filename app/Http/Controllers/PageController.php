@@ -31,7 +31,7 @@ class PageController extends Controller
                 $query->where('status', true)->with('course')->orderBy('sort_order');
             }
         ])->where('status', true)->get();
-
+        // dd($organisations);
         $hero_sliders = HeroSlider::where('is_active', true)->orderBy('sort_order')->get();
         $video_testimonials = VideoTestimonial::where('is_active', true)->orderBy('sort_order')->get();
         $noteworthy_categories = NoteworthyCategory::with([
